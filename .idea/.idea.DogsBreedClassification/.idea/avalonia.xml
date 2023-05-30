@@ -4,6 +4,13 @@
     <option name="projectPerEditor">
       <map>
         <entry key="DogsBreedClassification/MainWindow.axaml" value="DogsBreedClassification/DogsBreedClassification.csproj" />
+        <entry key="DogsBreedClassification/MainWindowStyles.axaml" value="DogsBreedClassification/DogsBreedClassification.csproj" />
+        <entry key="DogsBreedClassification/Windows/LoadDatasetWindow.axaml" value="DogsBreedClassification/DogsBreedClassification.csproj" />
+        <entry key="DogsBreedClassification/Windows/LoadModelWindow.axaml" value="DogsBreedClassification/DogsBreedClassification.csproj" />
+        <entry key="DogsBreedClassification/Windows/SaveDatasetWindow.axaml" value="DogsBreedClassification/DogsBreedClassification.csproj" />
+        <entry key="DogsBreedClassification/Windows/Styles/LoadDatasetWindowStyles.axaml" value="DogsBreedClassification/DogsBreedClassification.csproj" />
+        <entry key="DogsBreedClassification/Windows/Styles/LoadModelWindowStyles.axaml" value="DogsBreedClassification/DogsBreedClassification.csproj" />
+        <entry key="DogsBreedClassification/Windows/Styles/SaveDatasetWindowStyles.axaml" value="DogsBreedClassification/DogsBreedClassification.csproj" />
       </map>
     </option>
   </component>

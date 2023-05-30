@@ -4,11 +4,65 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="DogsBreedClassification.MainWindow"
-        Title="DogsBreedClassification">
-        <StackPanel>
-                <TextBlock Name = "DebugTextBlock"></TextBlock>
-                <Label>Путь</Label>
-                <TextBox Name = "Path">/Users/Vlad/Documents/kursa4_node/dog-breeds/</TextBox>
-                <Button Click="LoadTrainingImages">Загрузить обучающие данные</Button>
-        </StackPanel>
+        CanResize="False"
+        Title="Приложение для классификации породы собак">
+        
+        <Window.Styles>
+                <StyleInclude Source="/MainWindowStyles.axaml" />
+        </Window.Styles>
+        
+        
+        <Grid RowDefinitions="Auto, Auto, Auto">
+                <TextBlock Grid.Row = "0" Classes = "ApplicationNameLabel">Приложение для классификации породы собак (ML.NET, Inception)</TextBlock>
+                
+                <Grid ColumnDefinitions = "*, 4*" Grid.Row = "1" >
+                        
+                        <StackPanel Grid.Column ="0" Orientation="Vertical" Classes = "SPControl">
+                                <Button Click = "OpenSelectDatasetWindow" Classes = "LeftControlButton">Загрузить датасет</Button>
+                                <Button Name = "LearnBtn" Click = "Learn" Classes = "LeftControlButton">Обучить модель</Button>
+                                <Button Click = "LoadModel" Classes = "LeftControlButton">Загрузить модель</Button>
+                                <Button Click = "SaveModel">Сохранить модель</Button>
+                        </StackPanel>
+                        
+                        <StackPanel Grid.Column = "1" Classes = "SPLoadImage" Orientation="Horizontal">
+                                <TextBlock Classes = "ImagePathLabel">Путь к изображнию:</TextBlock>
+                                <TextBox Classes = "ImagePathTB" Name = "ClassifyPath">C:\Users\Vlad\Documents\testImage.jpg</TextBox>
+                                <Button Classes = "ClassifyButton" Name = "ClassifyButton" Click = "LoadImage">Загрузить изображение</Button>
+                        </StackPanel>
+                        
+                        <!--StackPanel Grid.Column = "1">
+                        
+                                <Label>Путь (тренировочные изображения)</Label>
+                                <TextBox Name = "Path">C:\Users\Vlad\Documents\ic_dataset\archive\train\</TextBox>
+                                <Button Click="LoadTrainingImages">Загрузить обучающие данные</Button>
+                                
+                                <TextBox Name = "TestPath">C:\Users\Vlad\Documents\ic_dataset\archive\test\</TextBox>
+                                <Button Click="LoadTestImages">Загрузить тестовые данные</Button>
+                                
+                                <Button Click="Learn">Обучить</Button>
+                                
+                                <TextBox Name = "ClassifyPath">C:\Users\Vlad\Documents\ic_dataset\archive\test\</TextBox>
+                                <Button Click="Classify">Определить класс изображения</Button>
+                                
+                                
+                                <Button Click = "OpenSelectDatasetWindow">Загрузить датасет</Button>
+                                
+                        </StackPanel-->
+                        
+                </Grid>
+                
+               
+                <Grid Grid.Row = "2" RowDefinitions="Auto, Auto, Auto">
+                        
+                        <TextBlock Grid.Row = "0" Classes="LearningBlock" Name = "IsLearning"></TextBlock>
+                        <Grid Name = "ImageGrid" Grid.Row = "1" RowDefinitions="Auto, Auto, Auto, Auto">
+                                <TextBlock Classes = "LoadedImageLabel" Grid.Row = "0">Загруженное изображение</TextBlock>
+                                <Image Name = "LoadedImages" Grid.Row = "1" Height = "244" Width = "244" Source="C:\Users\Vlad\Documents\testImage.jpg"></Image>
+                                <Button Classes = "LoadImgButton" Click = "Classify" Grid.Row = "2">Классифицировать изображение</Button>
+                                <TextBlock Classes = "CRTextBlock" Name = "ClassificationResult" Grid.Row = "3">Результаты классификации</TextBlock>
+                        </Grid>
+                        <TextBlock Classes = "Debug" Grid.Row = "2" Name = "DebugTextBlock">Debug</TextBlock>
+                </Grid>
+                        
+        </Grid>
 </Window>

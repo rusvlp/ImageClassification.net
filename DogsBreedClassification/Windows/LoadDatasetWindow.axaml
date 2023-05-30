@@ -1,0 +1,31 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="DogsBreedClassification.Windows.LoadDatasetWindow"
+        CanResize="False"
+        Width="1000"
+        Height="200"
+        Title="Загрузить датасет">
+    <Window.Styles>
+        <StyleInclude Source="/Windows/Styles/LoadDatasetWindowStyles.axaml" />
+    </Window.Styles>
+    
+    <Grid RowDefinitions="Auto, Auto, Auto, Auto">
+        <TextBlock Grid.Row = "0" Classes = "LoadFileWindowLabel">Загрузить датасет</TextBlock>
+        <StackPanel Grid.Row = "1" Orientation="Horizontal" Classes = "InputsStackPanel">
+            <TextBlock Classes="PathSign">Обущающие данные (путь):</TextBlock>
+            <TextBox Classes = "DataTextBox" Name = "TrainDataPath">C:\Users\Vlad\Documents\ic_dataset\archive\train\</TextBox>
+            <Button Click="LoadTrainData" Classes = "DataButton">Загрузить</Button>
+        </StackPanel>
+        <StackPanel Grid.Row = "2" Orientation="Horizontal" Classes = "InputsStackPanel">
+            <TextBlock Classes="PathSign">Тренировочные данные (путь):</TextBlock>
+            <TextBox Classes = "DataTextBox" Name = "TestDataPath">C:\Users\Vlad\Documents\ic_dataset\archive\test\</TextBox>
+            <Button Click = "LoadTestData" Classes = "DataButton">Загрузить</Button>
+        </StackPanel>
+        <StackPanel Grid.Row = "3" Classes = "InputsStackPanel">
+            <Button Click="Close">Готово</Button>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,28 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="DogsBreedClassification.Windows.SaveDatasetWindow"
+        Title="Сохранить модель"
+        CanResize="False"
+        Width="1000"
+        Height="150">
+    <Window.Styles>
+        <StyleInclude Source="/Windows/Styles/SaveDatasetWindowStyles.axaml" />
+    </Window.Styles>
+
+    
+    
+    <Grid RowDefinitions="Auto, Auto, Auto, Auto">
+        <TextBlock Grid.Row = "0" Classes = "LoadFileWindowLabel">Сохранить модель</TextBlock>
+        <StackPanel Grid.Row = "1" Orientation="Horizontal" Classes = "InputsStackPanel">
+            <TextBlock Classes="PathSign">Путь для сохранения модели:</TextBlock>
+            <TextBox Classes = "DataTextBox" Name = "SaveModelTextBox">C:\Users\Vlad\Documents\model.zip</TextBox>
+            <Button Click="SaveModel" Classes = "DataButton">Сохранить</Button>
+        </StackPanel>
+        <StackPanel Grid.Row = "3" Classes = "InputsStackPanel">
+            <Button Click="Close">Готово</Button>
+        </StackPanel>
+    </Grid>
+</Window>

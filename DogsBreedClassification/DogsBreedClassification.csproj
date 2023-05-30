@@ -18,6 +18,7 @@
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
         <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.18" />
         <PackageReference Include="Microsoft.ML" Version="3.0.0-preview.23266.6" />
+        <PackageReference Include="Microsoft.ML.ImageAnalytics" Version="3.0.0-preview.23266.6" />
         <PackageReference Include="Microsoft.ML.TensorFlow" Version="3.0.0-preview.23266.6" />
         <PackageReference Include="SciSharp.TensorFlow.Redist" Version="2.11.3" />
         <PackageReference Include="XamlNameReferenceGenerator" Version="1.6.1" />

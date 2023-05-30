@@ -1,0 +1,28 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="DogsBreedClassification.Windows.LoadModelWindow"
+        Title="Загрузить модель"
+        CanResize="False"
+        Width="1000"
+        Height="150">
+   
+        <Window.Styles>
+                <StyleInclude Source="/Windows/Styles/LoadModelWindowStyles.axaml" />
+        </Window.Styles>
+        
+        <Grid RowDefinitions="Auto, Auto, Auto, Auto">
+                <TextBlock Grid.Row = "0" Classes = "LoadFileWindowLabel">Загрузить модель</TextBlock>
+                <StackPanel Grid.Row = "1" Orientation="Horizontal" Classes = "InputsStackPanel">
+                        <TextBlock Classes="PathSign">Путь для загрузки модели:</TextBlock>
+                        <TextBox Classes = "DataTextBox" Name = "SaveModelTextBox">C:\Users\Vlad\Documents\model.zip</TextBox>
+                        <Button Click="LoadModel" Classes = "DataButton">Загрузить</Button>
+                </StackPanel>
+                <StackPanel Grid.Row = "3" Classes = "InputsStackPanel">
+                        <Button Click="Close">Готово</Button>
+                </StackPanel>
+        </Grid>
+        
+</Window>

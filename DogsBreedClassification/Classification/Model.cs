@@ -26,13 +26,13 @@ public class Model
     #endregion
     
     
-    private static TextBlock debug;
-    private static MLContext _mlContext;
-    private static ITransformer model;
-    private static IDataView trainingData;
+    private TextBlock debug;
+    private MLContext _mlContext;
+    private ITransformer model;
+    private IDataView trainingData;
     //private static DataViewSchema modelSchema;
     
-    public static void Condfigure()
+    public void Condfigure()
     {
         MLContext mlContext = new MLContext();  // Общий контекст для всех операций ML.NET
         _mlContext = mlContext;
@@ -50,7 +50,7 @@ public class Model
     }
     
     
-    static ITransformer GenerateModel(MLContext mlContext, string _imagesFolder)
+     ITransformer GenerateModel(MLContext mlContext, string _imagesFolder)
     {
         TextBlock debug = MainWindow.debugTb;
         //TextBlock learningTb = MainWindow.Instance.learningProcessTb;
@@ -91,7 +91,8 @@ public class Model
         return model;
     }
     
-    static void DisplayResults(IEnumerable<ImagePrediction> imagePredictionData)
+     /*
+    void DisplayResults(IEnumerable<ImagePrediction> imagePredictionData)
     {
         string result = "";
         TextBlock debug = MainWindow.debugTb;
@@ -103,8 +104,8 @@ public class Model
 
         debug.Text = result;
     }
-    
-    public static void ClassifySingleImage(string path)
+    */
+    public string ClassifySingleImage(string path)
     {
         ImageData imageData = new ImageData()
         {
@@ -114,16 +115,16 @@ public class Model
         PredictionEngine<ImageData, ImagePrediction> predictor = _mlContext.Model.CreatePredictionEngine<ImageData, ImagePrediction>(model);
         ImagePrediction prediction = predictor.Predict(imageData);
         TextBlock debug = MainWindow.debugTb;
-        MainWindow.resultTb.Text += $"Изображение: {Path.GetFileName(imageData.ImagePath)} является: {prediction.PredictedLabelValue} с результатом: {prediction.Score?.Max()} ";
+        return $"Изображение: {Path.GetFileName(imageData.ImagePath)} является: {prediction.PredictedLabelValue} с результатом: {prediction.Score?.Max()} ";
     }
 
-    public static void SaveModel(string path)
+    public void SaveModel(string path)
     {
        // debug.Text = trainingData.Schema + "";
         _mlContext.Model.Save(model, trainingData.Schema, path);
     }
 
-    public static void LoadModel(string path)
+    public void LoadModel(string path)
     {
         DataViewSchema dvSchema;
         

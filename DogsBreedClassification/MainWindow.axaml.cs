@@ -94,7 +94,7 @@ public partial class MainWindow : Window
         int milliseconds = 500;
         Thread.Sleep(milliseconds);
 
-        Model.Condfigure();
+        Model.getInstance().Condfigure();
         learningProcessTb.Text = "Обучение завершено...";
     }
 
@@ -111,7 +111,7 @@ public partial class MainWindow : Window
 
     private void Classify(object? sender, RoutedEventArgs e)
     {
-        Model.ClassifySingleImage(classifyPathTb.Text);
+        resultTb.Text = Model.getInstance().ClassifySingleImage(classifyPathTb.Text);
     }
 
     private void OpenSelectDatasetWindow(object? sender, RoutedEventArgs e)

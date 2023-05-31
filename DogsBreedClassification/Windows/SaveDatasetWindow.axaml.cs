@@ -29,7 +29,7 @@ public partial class SaveDatasetWindow : Window
     private void SaveModel(object? sender, RoutedEventArgs e)
     {
         string path = savePathTb.Text;
-        Model.SaveModel(path);
+        Model.getInstance().SaveModel(path);
     }
 
     private void Close(object? sender, RoutedEventArgs e)

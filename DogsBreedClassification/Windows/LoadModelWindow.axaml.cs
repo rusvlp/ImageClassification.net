@@ -29,7 +29,7 @@ public partial class LoadModelWindow : Window
     private void LoadModel(object? sender, RoutedEventArgs e)
     {
         string path = pathModelTextBox.Text;
-        Model.LoadModel(path);
+        Model.getInstance().LoadModel(path);
     }
 
     private void Close(object? sender, RoutedEventArgs e)
